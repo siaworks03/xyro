@@ -418,3 +418,138 @@ body {
     grid-column: span 5 / span 5;
   }
 }
+
+/* ==========================================================
+   Menu viewer (pop-up)
+   ========================================================== */
+.menu-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(100% - 1.5rem, 56rem);
+  height: min(92dvh, 70rem);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.25rem;
+  background: #081736;
+  color: #fff;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+}
+
+.menu-modal[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-modal::backdrop {
+  background: rgba(3, 10, 28, 0.82);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.menu-modal-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.75rem 0.75rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0a1d42;
+}
+
+.menu-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.menu-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.menu-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-close:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.menu-close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.menu-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.menu-modal-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.menu-error {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: rgba(219, 234, 254, 0.8);
+}
+
+html.menu-open {
+  overflow: hidden;
+}
+
+.menu-modal-hint {
+  display: none;
+  flex-shrink: 0;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: rgba(219, 234, 254, 0.75);
+  background: #0a1d42;
+}
+
+/* Full-screen on phones */
+@media (max-width: 639px) {
+  .menu-modal {
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .menu-modal-hint {
+    display: block;
+  }
+
+  /* Wide menu pictures: show them larger so the text is readable,
+     and let the visitor swipe sideways / pinch to zoom */
+  .menu-modal-body {
+    overflow: auto;
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+
+  .menu-modal-body img {
+    width: 1100px;
+    max-width: none;
+  }
+}

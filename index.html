@@ -60,8 +60,9 @@
                      EDIT THE href="" VALUES BELOW TO UPDATE YOUR LINKS
                      ============================================================ -->
 
-                <!-- Menu -->
-                <a class="link-card" href="https://xyro.cafe/menu" target="_blank" rel="noopener noreferrer">
+                <!-- Menu: opens the menu picture(s) in a pop-up viewer.
+                     Put your picture(s) in assets/ and list them in data-menu-images (comma separated). -->
+                <a class="link-card" href="assets/menu.jpg" data-menu-images="assets/menu.jpg" target="_blank" rel="noopener">
                   <div class="link-main">
                     <div class="link-icon">
                       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -136,7 +137,7 @@
                 </a>
 
                 <!-- Google Review -->
-                <a class="link-card" href="https://search.google.com/local/writereview?placeid=ChIJbTBmKgCZyzsREWhrQUHOtbM" target="_blank" rel="noopener noreferrer">
+                <a class="link-card" href="https://www.google.com/maps/search/?api=1&amp;query=xyro+cafe+reviews" target="_blank" rel="noopener noreferrer">
                   <div class="link-main">
                     <div class="link-icon">
                       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -173,6 +174,18 @@
         </section>
       </main>
     </div>
+
+    <!-- Menu viewer (opened by the Menu button) -->
+    <dialog class="menu-modal" id="menu-modal" aria-label="xyro menu">
+      <div class="menu-modal-bar">
+        <span class="menu-modal-title">Menu</span>
+        <button type="button" class="menu-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </button>
+      </div>
+      <p class="menu-modal-hint">Swipe to move around · pinch to zoom</p>
+      <div class="menu-modal-body" id="menu-pages"></div>
+    </dialog>
 
     <script src="js/main.js" defer></script>
   </body>
